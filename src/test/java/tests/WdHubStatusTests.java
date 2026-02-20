@@ -7,6 +7,8 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.hamcrest.Matchers.is;
 
 public class WdHubStatusTests extends TestBase {
+
+    //тесты из лекции
     @Test
     public void bestTotalAmountTest() {
         given()
@@ -30,6 +32,7 @@ public class WdHubStatusTests extends TestBase {
                 .statusCode(200);
     }
 
+    //тесты по ДЗ
     @Test
     public void successContentMessageTest() {
         given()
