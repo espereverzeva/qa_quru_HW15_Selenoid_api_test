@@ -10,7 +10,7 @@ public class WdHubStatusTests extends TestBase {
 
     //тесты из лекции
     @Test
-    public void bestTotalAmountTest() {
+    public void successStatus200TestTest() {
         given()
                 .log().all()
                 .auth().basic("user1", "1234")
@@ -22,14 +22,14 @@ public class WdHubStatusTests extends TestBase {
     }
 
     @Test
-    public void unauthorizedStatusTest() {
+    public void unauthorizedStatus400Test() {
         given()
                 .log().all()
                 .when()
                 .get("/wd/hub/status")
                 .then()
                 .log().all()
-                .statusCode(200);
+                .statusCode(401);
     }
 
     //тесты по ДЗ
@@ -81,6 +81,6 @@ public class WdHubStatusTests extends TestBase {
                 .get("/wd/hub/status")
                 .then()
                 .log().all()
-                .statusCode(200);
+                .statusCode(401);
     }
 }

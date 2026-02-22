@@ -56,17 +56,6 @@ public class StatusTests {
     }
 
     @Test
-    public void browserVersionTest() {
-        given()
-                .log().all()
-                .when()
-                .get("https://selenoid.autotests.cloud/status")
-                .then()
-                .log().all()
-                .statusCode(200);
-    }
-
-    @Test
     public void requiredKeysTest() {
         given()
                 .log().all()
