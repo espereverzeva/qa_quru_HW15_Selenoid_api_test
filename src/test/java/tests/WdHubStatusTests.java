@@ -22,7 +22,7 @@ public class WdHubStatusTests extends TestBase {
     }
 
     @Test
-    public void unauthorizedStatus400Test() {
+    public void unauthorizedStatus401Test() {
         given()
                 .log().all()
                 .when()
