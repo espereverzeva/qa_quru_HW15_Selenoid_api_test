@@ -8,7 +8,6 @@ import static org.hamcrest.Matchers.is;
 
 public class WdHubStatusTests extends TestBase {
 
-    //тесты из лекции
     @Test
     public void successStatus200TestTest() {
         given()
@@ -21,18 +20,6 @@ public class WdHubStatusTests extends TestBase {
                 .statusCode(200);
     }
 
-    @Test
-    public void unauthorizedStatus401Test() {
-        given()
-                .log().all()
-                .when()
-                .get("/wd/hub/status")
-                .then()
-                .log().all()
-                .statusCode(401);
-    }
-
-    //тесты по ДЗ
     @Test
     public void successContentMessageTest() {
         given()
@@ -70,6 +57,17 @@ public class WdHubStatusTests extends TestBase {
                 .log().all()
                 .statusCode(200)
                 .body(matchesJsonSchemaInClasspath("schemas/wd_hub_status_response_schema.json"));
+    }
+
+    @Test
+    public void negativeUnauthorizedNoLoginPasswordTest() {
+        given()
+                .log().all()
+                .when()
+                .get("/wd/hub/status")
+                .then()
+                .log().all()
+                .statusCode(401);
     }
 
     @Test
